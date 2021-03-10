@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Nav css */
+
+.Nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-style: solid;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-logo {
+  /* 로고 사진 넣어보고 조절하기*/
+  width: 30px;
+  height: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-item {
+  display: flex;
+  margin-right: 5%;
+  width: 300px;
+  justify-content: space-around;
+}
+/* Nav css - End*/
+
+/* Main css - Start*/
+.Main {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
+  height: 400px;
+  background-color: #c4c4c4;
+  margin-top: 200px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.main-text {
+  position: absolute;
+  text-align: center;
+  top: 37%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-btn {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  background-color: #a259ff;
+  text-align: center;
+  line-height: 50px;
+  bottom: 45%;
+  border-radius: 10px;
 }

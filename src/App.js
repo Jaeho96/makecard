@@ -1,30 +1,21 @@
 import React from "react";
+import { HashRouter, Route } from "react-router-dom";
 import css from "./App.css";
+import Navigation from "./Components/Navigation";
+import first from "./routes/first";
+import Home from "./routes/Home";
+import second from "./routes/second";
+import Signin from "./routes/Signin";
 
 function App() {
   return (
-    <div className="App">
-      {/* Nav-Start */}
-      <div className="Nav">
-        <img src="" alt="로고" className="nav-logo"></img>
-        <div className="nav-item">
-          <div>Home</div>
-          <div>카테고리1</div>
-          <div>카테고리2</div>
-        </div>
-      </div>
-      {/* Nav-End */}
-
-      {/* Main-Start */}
-      <div className="Main">
-        <div className="main-text">
-          <p>지금 바로 </p>
-          <p>당신만의 명함을 만들어보세요!</p>
-        </div>
-        <div className="main-btn"> Get Start</div>
-      </div>
-      {/* Main-End */}
-    </div>
+    <HashRouter>
+      <Navigation />
+      <Route path="/" exact={true} component={Home} />
+      <Route path="/1" component={first} />
+      <Route path="/2" component={second} />
+      <Route path="/signin" component={Signin} />
+    </HashRouter>
   );
 }
 

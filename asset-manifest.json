@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/makecard/static/css/main.a4359b61.chunk.css",
-    "main.js": "/makecard/static/js/main.27c916ad.chunk.js",
-    "main.js.map": "/makecard/static/js/main.27c916ad.chunk.js.map",
-    "runtime-main.js": "/makecard/static/js/runtime-main.18e3d2c6.js",
-    "runtime-main.js.map": "/makecard/static/js/runtime-main.18e3d2c6.js.map",
-    "static/js/2.6c2f41c4.chunk.js": "/makecard/static/js/2.6c2f41c4.chunk.js",
-    "static/js/2.6c2f41c4.chunk.js.map": "/makecard/static/js/2.6c2f41c4.chunk.js.map",
-    "index.html": "/makecard/index.html",
-    "static/css/main.a4359b61.chunk.css.map": "/makecard/static/css/main.a4359b61.chunk.css.map",
-    "static/js/2.6c2f41c4.chunk.js.LICENSE.txt": "/makecard/static/js/2.6c2f41c4.chunk.js.LICENSE.txt"
+    "main.css": "/makecard/home/static/css/main.a4359b61.chunk.css",
+    "main.js": "/makecard/home/static/js/main.27c916ad.chunk.js",
+    "main.js.map": "/makecard/home/static/js/main.27c916ad.chunk.js.map",
+    "runtime-main.js": "/makecard/home/static/js/runtime-main.80a0e323.js",
+    "runtime-main.js.map": "/makecard/home/static/js/runtime-main.80a0e323.js.map",
+    "static/js/2.6c2f41c4.chunk.js": "/makecard/home/static/js/2.6c2f41c4.chunk.js",
+    "static/js/2.6c2f41c4.chunk.js.map": "/makecard/home/static/js/2.6c2f41c4.chunk.js.map",
+    "index.html": "/makecard/home/index.html",
+    "static/css/main.a4359b61.chunk.css.map": "/makecard/home/static/css/main.a4359b61.chunk.css.map",
+    "static/js/2.6c2f41c4.chunk.js.LICENSE.txt": "/makecard/home/static/js/2.6c2f41c4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.18e3d2c6.js",
+    "static/js/runtime-main.80a0e323.js",
     "static/js/2.6c2f41c4.chunk.js",
     "static/css/main.a4359b61.chunk.css",
     "static/js/main.27c916ad.chunk.js"

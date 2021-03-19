@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from "../logo192.png";
 
 function Navigation() {
   return (
     // Nav- Start
     <div className="Nav">
-      <img src="" alt="로고" className="nav-logo"></img>
+      <img src={Logo} alt="로고" className="nav-logo"></img>
       <div className="nav-item">
-        <Link to="/">Home</Link>
-        <Link to="/1">카테고리1</Link>
-        <Link to="/2">카테고리2</Link>
+        <Link to="/">HOME</Link>
+        <Link to="/my stage">MY STAGE</Link>
+        <Link to="/signin">LOGIN</Link>
       </div>
     </div>
     //    Nav-End

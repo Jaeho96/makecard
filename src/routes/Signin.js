@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../logo192.png";
+import Logo from "../Logo2.svg";
 
 const { Kakao } = window;
 
@@ -25,7 +25,7 @@ function Signin() {
   return (
     <div className="Main-sign">
       <div className="sign-logo">
-        <img src={Logo} alt="로고" width="246px" height="162px" />
+        <img src={Logo} alt="로고" width="300px" height="200px" />
       </div>
 
       <div className="sign-text">
@@ -35,7 +35,7 @@ function Signin() {
       <button className="sign-btn" onClick={kakaoLoginClickHandler}></button>
 
       <Link to="/signin" className="sign-btn2">
-        이미 가입하셨다면, 바로 로그인하기
+        카카오 계정으로 <u>신규 가입하기</u>
       </Link>
     </div>
   );

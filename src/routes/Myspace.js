@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../Components/Sidebar";
 
-function Mystage() {
+function Myspace() {
   return (
     <div>
       <Sidebar />
@@ -9,4 +9,4 @@ function Mystage() {
   );
 }
 
-export default Mystage;
+export default Myspace;

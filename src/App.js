@@ -3,7 +3,8 @@ import { HashRouter, Route } from "react-router-dom";
 import css from "./App.css";
 import Navigation from "./Components/Navigation";
 import Home from "./routes/Home";
-import Mystage from "./routes/Mystage";
+import Myspace from "./routes/Myspace";
+
 import Signin from "./routes/Signin";
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       <HashRouter>
         <Navigation />
         <Route path="/" exact={true} component={Home} />
-        <Route path="/my stage" component={Mystage} />
+        <Route path="/myspace/create" component={Myspace} />
         <Route path="/signin" component={Signin} />
       </HashRouter>
     </>

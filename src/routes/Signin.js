@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../Logo2.svg";
+import { Redirect } from 'react-router-dom';
 
 const { Kakao } = window;
 
-function Signin() {
-  const kakaoLoginClickHandler = () => {
+function Signin({ authenticated, login, location })  {
+  // authenticated(state: 로그인 인증), login(function: username state를 App.js로 넘겨줌)
+  const [username, setUsername] = useState('');
+  // 카카오 로그인 api에서 사용자 정보 중 nickname만 setUsername으로 빼내서 state 관리
+   const kakaoLoginClickHandler = () => {  //카카오 로그인 api
     Kakao.Auth.login({
       scope: "profile, account_email, gender",
       success: function (authObj) {
@@ -16,11 +20,21 @@ function Signin() {
           success: (res) => {
             const account = res.kakao_account; //사용자 정보
             console.log(account);
-          },
-        });
-      },
-    });
-  };
+            setUsername(res.kakao_account.profile.nickname);
+            
+          }, // Kakao.API.request.success - end
+        }); // Kakao.API.request - end
+      }, // Kakao.Auth.login.success - end
+    }); // Kakao.Auth.login - end
+  }; // kakaoLoginClickHandler - end (카카오 로그인 api - end)
+
+  useEffect(() => { //username state의 값이 변하게 되면 login({username})을 실행
+    return () => login({username});
+  }, [username]);
+  
+// authenticated(boolean: 사용자 로그인 여부)의 값이 true일이면 "/"위치(Home,js)로 보낸다.
+  const { from } = location.state || {from: {pathname: "/"}}
+  if (authenticated) return <Redirect to ={from} />
 
   return (
     <div className="Main-sign">
@@ -32,13 +46,13 @@ function Signin() {
         <p> 지금 회원가입하시면 </p>
         <p> 명함이 5초만에 뚝딱!</p>
       </div>
-      <button className="sign-btn" onClick={kakaoLoginClickHandler}></button>
-
+      <button className="sign-btn" onClick={kakaoLoginClickHandler}> </button>
       <Link to="/signin" className="sign-btn2">
         카카오 계정으로 <u>신규 가입하기</u>
       </Link>
     </div>
   );
 }
+
 
 export default Signin;

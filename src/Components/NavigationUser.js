@@ -22,15 +22,13 @@ function Navigation_User({user, logout}) {
         <NavLink exact to="/" activeStyle={activeStyle}>
           HOME
         </NavLink>
-        <NavLink to="/myspace/create" activeStyle={activeStyle}>
+        <NavLink to="/myspace" activeStyle={activeStyle}>
           MY SPACE
         </NavLink>
         <NavLink exact to="/" onClick={handleClick}>
           LOGOUT
         </NavLink>
-        <NavLink to="/">
           {username}
-        </NavLink>
       </div>
     </div>
     //    Nav-End

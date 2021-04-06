@@ -12,14 +12,12 @@ function Signin({ authenticated, login, location })  {
    const kakaoLoginClickHandler = () => {  //카카오 로그인 api
     Kakao.Auth.login({
       scope: "profile, account_email, gender",
-      success: function (authObj) {
-        console.log(authObj); //토큰
+      success: function (authObj) { //토큰
 
         Kakao.API.request({
           url: "/v2/user/me",
           success: (res) => {
-            const account = res.kakao_account; //사용자 정보
-            console.log(account);
+            // res.kakao_account (사용자 정보)
             setUsername(res.kakao_account.profile.nickname);
             
           }, // Kakao.API.request.success - end
@@ -32,7 +30,7 @@ function Signin({ authenticated, login, location })  {
     return () => login({username});
   }, [username]);
   
-// authenticated(boolean: 사용자 로그인 여부)의 값이 true일이면 "/"위치(Home,js)로 보낸다.
+// authenticated(boolean: 사용자 로그인 여부)의 값이 true일이면 "/"위치(Home,js)로 이동
   const { from } = location.state || {from: {pathname: "/"}}
   if (authenticated) return <Redirect to ={from} />
 

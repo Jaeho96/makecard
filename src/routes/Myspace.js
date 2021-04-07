@@ -36,44 +36,66 @@ const Colorbuttons = styled.div`
 `;
 
 // 기본 정보 입력하기
-const Basicinfo = styled.div`
+const Infotitle = styled.div`
   display: flex;
-  border-style: solid;
-  height: 50px;
+  height: 40px;
   justify-content: center;
   font-size: 20px;
   margin-top: 1rem;
-  border-style: solid;
   flex-wrap: wrap;
 `;
 
-const Basicinfoinputs = styled.div`
+const Infoinputs = styled.div`
   display: flex;
-  justify-content: right;
-  flex-wrap: wrap;
+  align-items: flex-end;
+  flex-direction: column;
 `;
 
-const Basicinput = styled.input`
-  width: 82%;
-  margin-left: 1rem;
+const Infoinputposition = styled.div``;
+
+const Infoinput = styled.input`
+  width: 500px;
+  font-size: 15px;
+  margin-top: 0.5rem;
+  margin-left: 2rem;
+  margin-right: 8rem;
+  border-radius: 15px;
 `;
 
-function Myspace() {
-  // const [color, setColor] = useState("");
-  // const [name, setName] = useState("");
-  // const [mail, setMail] = useState("");
-  // console.log(color, "색상");
-  // console.log(name, "이름");
-  // console.log(mail, "메일");
+const Introduceinput = styled.textarea`
+  width: 500px;
+  height: 230px;
+  font-size: 15px;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  margin-right: 8rem;
+  border-radius: 15px;
+`;
 
-  const [values, setValues] = useState({ color: "", name: "", mail: "" });
+function Myspace({ usertoken }) {
+  const { token } = usertoken || {}; // App.js에서 token값 가져오기
+
+  const [values, setValues] = useState({
+    token: token,
+    color: "",
+    name: "",
+    mail: "",
+    corporate: "",
+    position: "",
+    phonenumber: "",
+    officenumber: "",
+    address: "",
+    introduce: "",
+  });
 
   const handleChange = (e) => {
+    // Basicinfo input eventhandle function
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
 
   const handleClick = (e) => {
+    // Colorselect button eventhandle function
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
@@ -84,7 +106,6 @@ function Myspace() {
     <MakemainPositioner>
       <Sidebar />
       <Outputform> 안녕 </Outputform>
-
       <Inputform>
         <Cololselector>
           명함 컬러 선택하기
@@ -103,25 +124,92 @@ function Myspace() {
             </button>
           </Colorbuttons>
         </Cololselector>
-        <Basicinfo>기본 정보 입력하기</Basicinfo>
-        <Basicinfoinputs>
-          이름
-          <Basicinput
-            type="text"
-            name="name"
-            value={values.name}
-            placeholder="이름을 입력하세요"
-            onChange={handleChange}
-          />
-          메일주소
-          <Basicinput
-            type="text"
-            name="mail"
-            value={values.mail}
-            placeholder="e-mail을 입력하세요"
-            onChange={handleChange}
-          />
-        </Basicinfoinputs>
+        <Infotitle>기본 정보 입력하기</Infotitle>
+        <Infoinputs>
+          <Infoinputposition>
+            <label>이름</label>
+            <Infoinput
+              type="text"
+              name="name"
+              value={values.name}
+              placeholder="   이름을 입력하세요"
+              onChange={handleChange}
+            />
+          </Infoinputposition>
+          <Infoinputposition>
+            <lable>메일주소</lable>
+            <Infoinput
+              type="text"
+              name="mail"
+              value={values.mail}
+              placeholder="   e-mail을 입력하세요"
+              onChange={handleChange}
+            />
+          </Infoinputposition>
+        </Infoinputs>
+        <Infotitle>추가 정보 입력하기</Infotitle>
+        <Infoinputs>
+          <Infoinputposition>
+            <label>회사명</label>
+            <Infoinput
+              type="text"
+              name="corporate"
+              value={values.corporate}
+              placeholder="   회사명을 입력하세요"
+              onChange={handleChange}
+            />
+          </Infoinputposition>
+          <Infoinputposition>
+            <lable>직급</lable>
+            <Infoinput
+              type="text"
+              name="position"
+              value={values.position}
+              placeholder="   직급을 입력하세요"
+              onChange={handleChange}
+            />
+          </Infoinputposition>
+          <Infoinputposition>
+            <lable>휴대폰번호</lable>
+            <Infoinput
+              type="text"
+              name="phonenumber"
+              value={values.phonenumber}
+              placeholder="   휴대폰번호를 입력하세요(010-XXXX-XXXX)"
+              onChange={handleChange}
+            />
+          </Infoinputposition>
+          <Infoinputposition>
+            <lable>전화번호</lable>
+            <Infoinput
+              type="text"
+              name="officenumber"
+              value={values.officenumber}
+              placeholder="   전화번호를 입력하세요(02-XXX-XXXX)"
+              onChange={handleChange}
+            />
+          </Infoinputposition>
+          <Infoinputposition>
+            <lable>주소</lable>
+            <Infoinput
+              type="text"
+              name="address"
+              value={values.address}
+              placeholder="   주소를 입력하세요"
+              onChange={handleChange}
+            />
+          </Infoinputposition>
+          <Infoinputposition>
+            <lable>소개</lable>
+            <Introduceinput
+              type="text"
+              name="introduce"
+              value={values.introduce}
+              placeholder="   나를 설명할 수 있는 소개글을 작성해보세요"
+              onChange={handleChange}
+            />
+          </Infoinputposition>
+        </Infoinputs>
       </Inputform>
     </MakemainPositioner>
   );

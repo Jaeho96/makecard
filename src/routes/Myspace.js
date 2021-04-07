@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import Sidebar from "../Components/Sidebar";
+import domtoimage from "dom-to-image";
+import { saveAs } from "file-saver";
 
 //명함 만들기 main 화면
 const MakemainPositioner = styled.div`
@@ -8,15 +10,78 @@ const MakemainPositioner = styled.div`
 `;
 // 출력폼
 const Outputform = styled.div`
-  border-style: solid;
+  display: flex;
   width: 50%;
   height: 100vh;
   margin-top: 1rem;
+  justify-content: center;
+`;
+
+const Outputlayer = styled.div`
+  display: flex;
+  width: 90%;
+  height: 90%;
+  border-style: solid;
+  border-radius: 20px;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const Outputcorporate = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+  height: 65px;
+  margin-top: 1rem;
+  border-bottom-style: solid;
+  font-size: 35px;
+`;
+
+const Outputname = styled.div`
+  width: 90%;
+  margin-top: 1rem;
+  font-size: 50px;
+`;
+
+const Outputposition = styled.div`
+  width: 90%;
+  margin-top: 1rem;
+  font-size: 30px;
+`;
+
+const Outputphonenumber = styled.div`
+  width: 90%;
+  margin-top: 1rem;
+  font-size: 20px;
+`;
+
+const Outputofficenumber = styled.div`
+  width: 90%;
+  margin-top: 1rem;
+  font-size: 20px;
+`;
+
+const Outputemail = styled.div`
+  width: 90%;
+  margin-top: 1rem;
+  font-size: 20px;
+`;
+
+const Outputaddress = styled.div`
+  width: 90%;
+  margin-top: 1rem;
+  font-size: 20px;
+`;
+
+const Outputintroduce = styled.label`
+  width: 90%;
+  border-style: solid;
+  margin-top: 1rem;
+  font-size: 20px;
 `;
 
 // 입력폼
 const Inputform = styled.div`
-  border-style: solid;
   width: 50%;
   height: 100vh;
   margin-top: 1rem;
@@ -100,12 +165,33 @@ function Myspace({ usertoken }) {
     setValues({ ...values, [name]: value });
   };
 
+  // const submitbtn = useRef();
+
+  // submitbtn.onclick = function () {
+  //   domtoimage
+  //     .toBlob(document.getElementById("Outputimg"))
+  //     .then(function (blob) {
+  //       window.saveAs(blob, "Outputimg.png");
+  //     });
+  // };
+
   console.log(values);
 
   return (
     <MakemainPositioner>
       <Sidebar />
-      <Outputform> 안녕 </Outputform>
+      <Outputform>
+        <Outputlayer id="Outputimg" style={{ backgroundColor: values.color }}>
+          <Outputcorporate>{values.corporate}</Outputcorporate>
+          <Outputname>{values.name}</Outputname>
+          <Outputposition>{values.position}</Outputposition>
+          <Outputphonenumber>{values.phonenumber}</Outputphonenumber>
+          <Outputofficenumber>{values.officenumber}</Outputofficenumber>
+          <Outputemail>{values.mail}</Outputemail>
+          <Outputaddress>{values.address}</Outputaddress>
+          <Outputintroduce>{values.introduce}</Outputintroduce>
+        </Outputlayer>
+      </Outputform>
       <Inputform>
         <Cololselector>
           명함 컬러 선택하기
@@ -208,6 +294,9 @@ function Myspace({ usertoken }) {
               placeholder="   나를 설명할 수 있는 소개글을 작성해보세요"
               onChange={handleChange}
             />
+          </Infoinputposition>
+          <Infoinputposition>
+            {/* <button ref={submitbtn}>버튼</button> */}
           </Infoinputposition>
         </Infoinputs>
       </Inputform>
